@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HabitTracker Pro Engine</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="header-content">
+        <h1>HabitTracker Pro</h1>
+        <p id="current-date-display">Loading date...</p>
+      </div>
+    </header>
+
+    <section class="card stats-card">
+      <div class="stat-box">
+        <span class="stat-label">Weekly Execution Rate</span>
+        <div class="progress-bar-container">
+          <div class="progress-bar-fill" id="weekly-progress-bar"></div>
+        </div>
+        <span class="stat-value" id="weekly-progress-text">0%</span>
+      </div>
+    </section>
+
+    <section class="card habit-input-card">
+      <form id="habit-form">
+        <input 
+          type="text" 
+          id="habit-input" 
+          placeholder="Create new core habit target..." 
+          autocomplete="off" 
+          required
+        >
+        <button type="submit" id="add-habit-btn">Commit Habit</button>
+      </form>
+    </section>
+
+    <section class="card habit-list-card">
+      <div class="table-header-row">
+        <div class="col-habit">Habit Specification</div>
+        <div class="col-days" id="weekly-days-header"></div>
+        <div class="col-streak">Current Streak</div>
+        <div class="col-actions">Manage</div>
+      </div>
+      
+      <div id="habit-list-container"></div>
+      <div id="empty-state" class="empty-state">
+        <p>Zero active habits configured. Register a new habit target above.</p>
+      </div>
+    </section>
+  </div>
+
+  <script src="js/dateUtils.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
