@@ -1,232 +1,78 @@
-📊 HabitTracker Pro
-A Full-Stack Habit Tracking & Consistency Engine
+# ⚡ HabitTracker Pro
 
-https://img.shields.io/badge/Python-3.11+-blue?style=for-the-badge&logo=python
-https://img.shields.io/badge/FastAPI-0.100+-009688?style=for-the-badge&logo=fastapi
-https://img.shields.io/badge/JavaScript-ES6+-yellow?style=for-the-badge&logo=javascript
-https://img.shields.io/badge/Docker-Enabled-2496ED?style=for-the-badge&logo=docker
-https://img.shields.io/badge/Deployed-Vercel-000000?style=for-the-badge&logo=vercel
-https://img.shields.io/badge/License-MIT-green?style=for-the-badge
+> **A High-Performance Habit & Consistency Tracking Engine**
+> Track daily executions, compute rolling weekly metrics, and maintain streaks with local-first storage and Fast-API backend integration.
 
-📋 Table of Contents
-Overview
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://habbit-tracker-seven-blue.vercel.app)
+![Python](https://img.shields.io/badge/Python-3.10+-blue?style=for-the-badge&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-Key Features
+---
 
-Architecture
+## 🌐 Live Demo
 
-Tech Stack
+🚀 **Frontend Deployment:** [https://habbit-tracker-seven-blue.vercel.app](https://habbit-tracker-seven-blue.vercel.app)
 
-Project Structure
+---
 
-Installation & Setup
+## 📋 Table of Contents
 
-API Endpoints
+- [Overview](#-overview)
+- [Key Features](#-key-features)
+- [Architecture](#-architecture)
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [Installation & Setup](#-installation--setup)
+  - [Prerequisites](#prerequisites)
+  - [Backend Setup](#backend-setup)
+  - [Frontend Setup](#frontend-setup)
+- [API Endpoints](#-api-endpoints)
+- [Key Utilities & Calculations](#-key-utilities--calculations)
+- [Future Roadmap](#-future-roadmap)
+- [Contributing](#-contributing)
+- [License](#-license)
 
-Core Calculations
+---
 
-Contributing
+## 🚀 Overview
 
-License
+**HabitTracker Pro** is designed to eliminate daily habit-tracking friction by offering a lightweight, responsive, and persistent workspace. It provides visual feedback on daily targets, dynamic weekly completion rates, and streak calculation logic—ensuring users maintain disciplined habits over time.
 
-1. Overview
-HabitTracker Pro is an enterprise-grade habit tracking application designed to help users build and maintain consistent daily habits. Built with a modular architecture, it combines a lightweight Vanilla JavaScript frontend with a high-performance FastAPI backend, offering both local-first storage and cloud synchronization capabilities.
+---
 
-The application provides real-time feedback on daily completions, visual weekly progress tracking, and intelligent streak calculations to keep users motivated and accountable.
+## ✨ Key Features
 
-🔗 Live Demo: habbit-tracker-seven-blue.vercel.app
+- **🔥 Dynamic Streak Calculation:** Real-time streak tracking that accounts for continuous daily completions without missing a beat.
+- **📊 Weekly Execution Analytics:** Rolling 7-day progress bar providing an immediate visual percentage of total habits executed.
+- **⚡ Dual Mode Architecture:** Operates seamlessly via local `StorageEngine` (browser storage) with instant response times and optional REST API backend sync.
+- **🗓️ Dynamic Date Matrix:** Auto-calculates and displays past 7-day calendar headers with live date tracking.
+- **🎨 Dark Theme UI:** Modern, distraction-free dark interface with high-contrast indicator badges and smooth controls.
 
-2. Key Features
-Feature	Description
-🔥 Dynamic Streak Tracking	Real-time algorithm that tracks continuous daily completions with intelligent break detection
-📊 Weekly Analytics Dashboard	Rolling 7-day progress bar showing percentage of total habits completed
-⚡ Dual Persistence Layer	Seamless client-side caching via LocalStorage with optional FastAPI backend sync
-🗓️ Smart Date Matrix	Auto-generated 7-day calendar view with live date tracking and visual indicators
-🎨 Modern Dark UI	Distraction-free dark theme with high-contrast badges and smooth animations
-🐳 Production Ready	Fully containerized with Docker and Docker Compose for instant deployment
-📱 Responsive Design	Optimized for all devices from mobile to desktop screens
-3. Architecture
-text
-┌─────────────────────────────────────────────────────────────────┐
-│                        Browser / Client                        │
-│  ┌────────────────────┐  ┌──────────────────────────────────┐  │
-│  │   index.html UI    │  │     app.js (Controller)          │  │
-│  └────────────────────┘  └──────────────────────────────────┘  │
-│           │                            │                       │
-│           ▼                            ▼                       │
-│  ┌────────────────────┐  ┌──────────────────────────────────┐  │
-│  │   dateUtils.js     │  │   storage.js (Storage Engine)   │  │
-│  └────────────────────┘  └──────────────────────────────────┘  │
-└─────────────────────────────────────┬───────────────────────────┘
-                                      │ (Optional API Sync)
-                                      ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                      FastAPI Backend                           │
-│  ┌────────────────────┐  ┌──────────────────────────────────┐  │
-│  │   main.py (API)    │  │   Pydantic Models / DB Sync     │  │
-│  └────────────────────┘  └──────────────────────────────────┘  │
-└─────────────────────────────────────────────────────────────────┘
-4. Tech Stack
-Frontend
-Technology	Purpose
-HTML5	Semantic markup with modern accessibility standards
-CSS3	Custom properties, CSS Grid, Flexbox, Dark theme variables
-Vanilla ES6+ JS	Pure JavaScript modules with no external dependencies
-Backend
-Technology	Purpose
-Python 3.11+	Core runtime environment
-FastAPI	High-performance REST API with automatic OpenAPI documentation
-Uvicorn	ASGI server for asynchronous request handling
-Pydantic v2	Data validation, serialization, and settings management
-DevOps & Infrastructure
-Technology	Purpose
-Docker	Containerization for consistent development and production environments
-Docker Compose	Multi-container orchestration
-Vercel	Frontend hosting and continuous deployment
-5. Project Structure
-text
-habit-tracker-pro/
-├── backend/
-│   ├── app/
-│   │   ├── __init__.py
-│   │   ├── config.py
-│   │   ├── models.py
-│   │   └── routes/
-│   │       ├── __init__.py
-│   │       └── habits.py
-│   ├── Dockerfile
-│   ├── main.py
-│   └── requirements.txt
-├── frontend/
-│   ├── css/
-│   │   └── style.css
-│   ├── js/
-│   │   ├── app.js
-│   │   ├── dateUtils.js
-│   │   └── storage.js
-│   ├── Dockerfile
-│   └── index.html
-├── docker-compose.yml
-├── .env.example
-├── .gitignore
-└── README.md
-6. Installation & Setup
-Prerequisites
-Python 3.11 or higher
+---
 
-Docker (optional, for containerized deployment)
+## 🏗️ Architecture
 
-Modern web browser (Chrome, Firefox, Edge, Brave)
-
-Method 1: Local Development
-Backend Setup
-bash
-# Clone the repository
-git clone https://github.com/your-username/habit-tracker-pro.git
-cd habit-tracker-pro
-
-# Create and activate virtual environment
-python -m venv venv
-source venv/bin/activate  # Windows: .\venv\Scripts\activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Start FastAPI server
-python -m uvicorn backend.main:app --reload --port 8000
-Frontend Setup
-bash
-# Open a new terminal and serve static files
-python -m http.server 8080 --directory frontend
-Access the application at http://localhost:8080 and API docs at http://localhost:8000/docs
-
-Method 2: Docker Deployment
-bash
-# Build and run with Docker Compose
-docker-compose up --build
-
-# Services will be available at:
-# Frontend: http://localhost:3000
-# Backend API: http://localhost:8000
-# API Documentation: http://localhost:8000/docs
-7. API Endpoints
-Method	Endpoint	Description	Request Body
-GET	/	Health check / Server verification	-
-GET	/docs	OpenAPI / Swagger Interactive Documentation	-
-GET	/api/v1/habits	Retrieve all registered habits	-
-POST	/api/v1/habits	Register a new habit target	{"name": "string", "dailyTarget": integer}
-PUT	/api/v1/habits/{id}	Update an existing habit	{"name": "string", "dailyTarget": integer}
-DELETE	/api/v1/habits/{id}	Remove a target habit	-
-GET	/api/v1/stats	Get overall habit statistics	-
-Example Response
-json
-{
-  "habits": [
-    {
-      "id": "habit_001",
-      "name": "Morning Meditation",
-      "dailyTarget": 1,
-      "completedDates": ["2026-08-15", "2026-08-14", "2026-08-13"],
-      "streak": 12,
-      "consistency": 85.7
-    }
-  ],
-  "weeklyExecutionRate": 78.5,
-  "totalHabits": 1,
-  "activeStreaks": 1
-}
-8. Core Calculations
-Weekly Execution Rate
-text
-Execution Rate (%) = (Total Checkboxes Marked / (Total Habits × 7)) × 100
-Streak Calculation Algorithm
-Retrieve completed dates sorted in reverse chronological order
-
-Verify continuous completion from current date backward
-
-Handle edge cases (missing dates, breaks, grace periods)
-
-Return current streak count with active status
-
-Performance Optimizations
-O(1) Lookup: Set data structures for date verification
-
-Memoization: Cached weekly analytics to prevent redundant computation
-
-Batch Operations: Grouped localStorage operations to minimize I/O
-
-Debounced Updates: Smooth UI updates during rapid interactions
-
-9. Contributing
-We welcome contributions from the community! Follow these steps:
-
-Fork the repository
-
-Create a feature branch: git checkout -b feature/amazing-feature
-
-Commit your changes: git commit -m 'Add amazing feature'
-
-Push to the branch: git push origin feature/amazing-feature
-
-Open a Pull Request
-
-Development Guidelines
-Follow PEP 8 for Python code
-
-Use ES6+ standards for JavaScript
-
-Write clear commit messages
-
-Add documentation for new features
-
-Include tests where applicable
-
-10. License
-Distributed under the MIT License. See LICENSE for more information.
-
-<div align="center">
-🌐 Live Demo • 🐛 Report Bug • 💡 Request Feature
-
-
-
-</div>
+```text
++-------------------------------------------------------+
+|                    Browser / Client                   |
+|  +-------------------+  +--------------------------+  |
+|  |   index.html UI   |  |   app.js (Controller)    |  |
+|  +---------+---------+  +------------+-------------+  |
+|            |                         |                |
+|            v                         v                |
+|  +-------------------+  +--------------------------+  |
+|  |   dateUtils.js    |  |   storage.js (Engine)    |  |
+|  +-------------------+  +------------+-------------+  |
++--------------------------------------|----------------+
+                                       | (REST API Sync)
+                                       v
++-------------------------------------------------------+
+|                    FastAPI Backend                    |
+|  +-------------------+  +--------------------------+  |
+|  |    main.py API    |  |   Pydantic / DB Sync     |  |
+|  +-------------------+  +--------------------------+  |
++-------------------------------------------------------+
