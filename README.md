@@ -78,7 +78,7 @@
 +-------------------------------------------------------+
 ```
 
-##🛠️ Tech Stack
+## 🛠️ Tech Stack
 Frontend
 
 HTML5 & CSS3: Custom flexbox/grid layout with CSS variables for dark-mode aesthetic.
@@ -116,7 +116,7 @@ habit-tracker/
 └── requirements.txt
 ```
 
-##⚙️ Installation & Setup
+## ⚙️ Installation & Setup
 Prerequisites
 Python: v3.10 or higher
 
