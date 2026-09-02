@@ -3,7 +3,7 @@
 > **A High-Performance Habit & Consistency Tracking Engine**
 > Track daily executions, compute rolling weekly metrics, and maintain streaks with local-first storage and Fast-API backend integration.
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://habbit-tracker-seven-blue.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://habbit-tracker-nu-taupe.vercel.app/)
 ![Python](https://img.shields.io/badge/Python-3.10+-blue?style=for-the-badge&logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-009688?style=for-the-badge&logo=fastapi&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
@@ -15,7 +15,7 @@
 
 ## 🌐 Live Demo
 
-🚀 **Frontend Deployment:** [https://habbit-tracker-seven-blue.vercel.app](https://habbit-tracker-seven-blue.vercel.app)
+🚀 **Frontend Deployment:** [https://habbit-tracker-nu-taupe.vercel.app/](https://habbit-tracker-nu-taupe.vercel.app/)
 
 ---
 
