@@ -1,137 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>⚡ HabitTracker Pro - Documentation</title>
-  <style>
-    :root {
-      --bg-color: #0d1117;
-      --card-bg: #161b22;
-      --border-color: #30363d;
-      --text-main: #c9d1d9;
-      --text-muted: #8b949e;
-      --accent-color: #58a6ff;
-      --badge-bg: #21262d;
-    }
+# ⚡ HabitTracker Pro
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      line-height: 1.6;
-      margin: 0;
-      padding: 40px 20px;
-    }
+> **A High-Performance Habit & Consistency Tracking Engine**
+> Track daily executions, compute rolling weekly metrics, and maintain streaks with local-first storage and Fast-API backend integration.
 
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      background: var(--card-bg);
-      padding: 40px;
-      border-radius: 12px;
-      border: 1px solid var(--border-color);
-    }
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://habbit-tracker-nu-taupe.vercel.app/)
+![Python](https://img.shields.io/badge/Python-3.10+-blue?style=for-the-badge&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-    h1, h2, h3 { color: #ffffff; margin-top: 1.5em; }
-    h1 { font-size: 2.2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; margin-top: 0; }
-    h2 { font-size: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 6px; }
+---
 
-    a { color: var(--accent-color); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+## 🌐 Live Demo
 
-    blockquote {
-      background: var(--badge-bg);
-      border-left: 4px solid var(--accent-color);
-      margin: 20px 0;
-      padding: 12px 20px;
-      color: var(--text-muted);
-    }
+🚀 **Frontend Deployment:** [https://habbit-tracker-nu-taupe.vercel.app/](https://habbit-tracker-nu-taupe.vercel.app/)
 
-    pre, code {
-      background: #0d1117;
-      color: #e6edf3;
-      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-      font-size: 0.9rem;
-      border-radius: 6px;
-    }
+---
 
-    code { padding: 3px 6px; }
+## 📋 Table of Contents
 
-    pre {
-      padding: 16px;
-      overflow-x: auto;
-      border: 1px solid var(--border-color);
-    }
+- [Overview](#-overview)
+- [Key Features](#-key-features)
+- [Architecture](#-architecture)
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [Installation & Setup](#-installation--setup)
+  - [Prerequisites](#prerequisites)
+  - [Backend Setup](#backend-setup)
+  - [Frontend Setup](#frontend-setup)
+- [API Endpoints](#-api-endpoints)
+- [Key Utilities & Calculations](#-key-utilities--calculations)
+- [Future Roadmap](#-future-roadmap)
+- [Contributing](#-contributing)
+- [License](#-license)
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 20px 0;
-    }
+---
 
-    th, td {
-      border: 1px solid var(--border-color);
-      padding: 10px;
-      text-align: left;
-    }
+## 🚀 Overview
 
-    th { background: var(--badge-bg); color: #fff; }
+**HabitTracker Pro** is designed to eliminate daily habit-tracking friction by offering a lightweight, responsive, and persistent workspace. It provides visual feedback on daily targets, dynamic weekly completion rates, and streak calculation logic—ensuring users maintain disciplined habits over time.
 
-    ul { padding-left: 20px; }
-    li { margin-bottom: 6px; }
+---
 
-    .badges { margin: 15px 0; display: flex; gap: 8px; flex-wrap: wrap; }
-    .badges img { height: 28px; }
+## ✨ Key Features
 
-    .formula-box {
-      background: var(--badge-bg);
-      padding: 15px;
-      border-radius: 8px;
-      text-align: center;
-      font-weight: bold;
-      margin: 15px 0;
-      border: 1px solid var(--border-color);
-    }
-  </style>
-</head>
-<body>
+- **🔥 Dynamic Streak Calculation:** Real-time streak tracking that accounts for continuous daily completions without missing a beat.
+- **📊 Weekly Execution Analytics:** Rolling 7-day progress bar providing an immediate visual percentage of total habits executed.
+- **⚡ Dual Mode Architecture:** Operates seamlessly via local `StorageEngine` (browser storage) with instant response times and optional REST API backend sync.
+- **🗓️ Dynamic Date Matrix:** Auto-calculates and displays past 7-day calendar headers with live date tracking.
+- **🎨 Dark Theme UI:** Modern, distraction-free dark interface with high-contrast indicator badges and smooth controls.
 
-<div class="container">
+---
 
-  <h1>⚡ HabitTracker Pro</h1>
-  <blockquote>
-    <strong>A High-Performance Habit & Consistency Tracking Engine</strong><br>
-    Track daily executions, compute rolling weekly metrics, and maintain streaks with local-first storage and FastAPI backend integration.
-  </blockquote>
+## 🏗️ Architecture
 
-  <div class="badges">
-    <a href="https://habbit-tracker-nu-taupe.vercel.app/" target="_blank"><img src="https://img.shields.io/badge/Live_Demo-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo"></a>
-    <img src="https://img.shields.io/badge/Python-3.10+-blue?style=for-the-badge&logo=python&logoColor=white" alt="Python">
-    <img src="https://img.shields.io/badge/FastAPI-0.100+-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI">
-    <img src="https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JS">
-    <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
-    <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
-    <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
-  </div>
-
-  <h2>🌐 Live Demo</h2>
-  <p>🚀 <strong>Frontend Deployment:</strong> <a href="https://habbit-tracker-nu-taupe.vercel.app/" target="_blank">https://habbit-tracker-nu-taupe.vercel.app/</a></p>
-
-  <h2>🚀 Overview</h2>
-  <p><strong>HabitTracker Pro</strong> is designed to eliminate daily habit-tracking friction by offering a lightweight, responsive, and persistent workspace. It provides visual feedback on daily targets, dynamic weekly completion rates, and streak calculation logic—ensuring users maintain disciplined habits over time.</p>
-
-  <h2>✨ Key Features</h2>
-  <ul>
-    <li><strong>🔥 Dynamic Streak Calculation:</strong> Real-time streak tracking that accounts for continuous daily completions without missing a beat.</li>
-    <li><strong>📊 Weekly Execution Analytics:</strong> Rolling 7-day progress bar providing an immediate visual percentage of total habits executed.</li>
-    <li><strong>⚡ Dual Mode Architecture:</strong> Operates seamlessly via local <code>StorageEngine</code> (browser storage) with instant response times and optional REST API backend sync.</li>
-    <li><strong>🗓️ Dynamic Date Matrix:</strong> Auto-calculates and displays past 7-day calendar headers with live date tracking.</li>
-    <li><strong>🎨 Dark Theme UI:</strong> Modern, distraction-free dark interface with high-contrast indicator badges and smooth controls.</li>
-  </ul>
-
-  <h2>🏗️ Architecture</h2>
-<pre>
+```text
 +-------------------------------------------------------+
 |                    Browser / Client                   |
 |  +-------------------+  +--------------------------+  |
@@ -151,24 +76,27 @@
 |  |    main.py API    |  |   Pydantic / DB Sync     |  |
 |  +-------------------+  +--------------------------+  |
 +-------------------------------------------------------+
-</pre>
+```
 
-  <h2>🛠️ Tech Stack</h2>
-  <h3>Frontend</h3>
-  <ul>
-    <li><strong>HTML5 & CSS3:</strong> Custom flexbox/grid layout with CSS variables for dark-mode aesthetic.</li>
-    <li><strong>Vanilla JavaScript (ES6+):</strong> Pure JS modules (<code>dateUtils.js</code>, <code>storage.js</code>, <code>app.js</code>) without heavy external bundle dependencies.</li>
-    <li><strong>Hosting:</strong> Vercel</li>
-  </ul>
-  <h3>Backend</h3>
-  <ul>
-    <li><strong>Python 3.10+:</strong> Core runtime environment.</li>
-    <li><strong>FastAPI & Uvicorn:</strong> Lightning-fast RESTful API web server with automatic OpenAPI Swagger generation.</li>
-    <li><strong>Hosting:</strong> Render</li>
-  </ul>
+##🛠️ Tech Stack
+Frontend
 
-  <h2>📂 Project Structure</h2>
-<pre>
+HTML5 & CSS3: Custom flexbox/grid layout with CSS variables for dark-mode aesthetic.
+
+Vanilla JavaScript (ES6+): Pure JS modules (dateUtils.js, storage.js, app.js) without heavy external bundle dependencies.
+
+Hosting: Vercel
+
+Backend
+
+Python 3.10+: Core runtime environment.
+
+FastAPI & Uvicorn: Lightning-fast RESTful API web server with automatic OpenAPI Swagger generation.
+
+Hosting: Render
+
+## 📂 Project Structure
+```
 habit-tracker/
 ├── backend/
 │   ├── app/
@@ -186,77 +114,90 @@ habit-tracker/
 ├── .gitignore
 ├── README.md
 └── requirements.txt
-</pre>
+```
 
-  <h2>⚙️ Installation & Setup</h2>
-  <h3>Prerequisites</h3>
-  <ul>
-    <li><strong>Python:</strong> v3.10 or higher</li>
-    <li><strong>Browser:</strong> Any modern browser (Chrome, Edge, Firefox, Brave)</li>
-  </ul>
+##⚙️ Installation & Setup
+Prerequisites
+Python: v3.10 or higher
 
-  <h3>Backend Setup</h3>
-  <ol>
-    <li><strong>Clone the repository:</strong>
-      <pre>git clone https://github.com/your-username/habit-tracker-pro.git
-cd habit-tracker-pro</pre>
-    </li>
-    <li><strong>Create and activate virtual environment:</strong>
-      <pre># Windows (PowerShell)
+Browser: Any modern browser (Chrome, Edge, Firefox, Brave)
+
+Backend Setup
+1. Clone the repository:
+```
+git clone [https://github.com/your-username/habit-tracker-pro.git](https://github.com/your-username/habit-tracker-pro.git)
+cd habit-tracker-pro
+```
+2. Create and activate a virtual environment:
+```
+# Windows (PowerShell)
 python -m venv venv
-.\venv\Scripts\Activate.ps1</pre>
-    </li>
-    <li><strong>Install dependencies:</strong>
-      <pre>pip install -r requirements.txt</pre>
-    </li>
-    <li><strong>Start FastAPI Server:</strong>
-      <pre>$env:PYTHONPATH="backend"; python -m uvicorn backend.main:app --reload --port 8000</pre>
-    </li>
-  </ol>
+.\venv\Scripts\Activate.ps1
+```
+3. Install dependencies:
+```
+pip install -r requirements.txt
+```
+4. Start the FastAPI Backend Server:
+```
+$env:PYTHONPATH="backend"; python -m uvicorn backend.main:app --reload --port 8000
+```
+Frontend Setup
+Open a second terminal window in the project root directory and run the HTTP static server:
+```
+python -m http.server 8080 --directory frontend
+```
+## 📡 API Endpoints
 
-  <h3>Frontend Setup</h3>
-  <p>Run static server in terminal:</p>
-  <pre>python -m http.server 8080 --directory frontend</pre>
+Once the FastAPI backend is running, explore interactive documentation via Swagger UI at `/docs`.
 
-  <h2>📡 API Endpoints</h2>
-  <table>
-    <thead>
-      <tr><th>Method</th><th>Endpoint</th><th>Description</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>GET</td><td>/</td><td>Health Check / Server Verification</td></tr>
-      <tr><td>GET</td><td>/docs</td><td>OpenAPI / Swagger Interactive Documentation</td></tr>
-      <tr><td>GET</td><td>/api/v1/habits</td><td>Retrieve all registered habits</td></tr>
-      <tr><td>POST</td><td>/api/v1/habits</td><td>Register/Commit a new core habit target</td></tr>
-      <tr><td>DELETE</td><td>/api/v1/habits/{id}</td><td>Remove a target habit</td></tr>
-    </tbody>
-  </table>
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `GET` | `/` | Health Check / Server Verification |
+| `GET` | `/docs` | OpenAPI / Swagger Interactive Documentation |
+| `GET` | `/api/v1/habits` | Retrieve all registered habits |
+| `POST` | `/api/v1/habits` | Register/Commit a new core habit target |
+| `DELETE` | `/api/v1/habits/{id}` | Remove a target habit |
 
-  <h2>🧮 Key Utilities & Calculations</h2>
-  <h3>Weekly Execution Rate Formula</h3>
-  <div class="formula-box">
-    Execution Rate (%) = ( Total Checkboxes Marked across 7 Days / (Total Habits × 7) ) × 100
-  </div>
+---
 
-  <h3>Streak Calculation Logic</h3>
-  <ul>
-    <li>Reads completed ISO date arrays sorted in reverse order.</li>
-    <li>Verifies active status against current date (today) or yesterday.</li>
-    <li>Increments streak counter continuously back until a break in execution occurs.</li>
-  </ul>
+## 🧮 Key Utilities & Calculations
 
-  <h2>📌 Future Roadmap</h2>
-  <ul>
-    <li>[ ] PostgreSQL / SQLite persistence integration.</li>
-    <li>[ ] Category tags & habit priority levels.</li>
-    <li>[ ] Export habits history to CSV / JSON format.</li>
-    <li>[ ] User authentication & multi-tenant profile management.</li>
-  </ul>
+### Weekly Execution Rate Formula
 
-  <h2>📜 License</h2>
-  <p>Distributed under the <strong>MIT License</strong>.</p>
+$$\text{Execution Rate (\%)} = \left( \frac{\text{Total Checkboxes Marked across 7 Days}}{\text{Total Habits} \times 7} \right) \times 100$$
 
-</div>
+### Streak Calculation Logic
 
-</body>
-</html>
+- Reads completed ISO date arrays sorted in reverse order.
+- Verifies active status against current date (`today`) or immediate previous date (`yesterday`).
+- Increments streak counter continuously back until a break in execution occurs.
+
+---
+
+## 📌 Future Roadmap
+
+- [ ] PostgreSQL / SQLite persistence integration.
+- [ ] Category tags & habit priority levels.
+- [ ] Export habits history to CSV / JSON format.
+- [ ] User authentication & multi-tenant profile management.
+
+---
+
+## 🤝 Contributing
+
+Contributions are always welcome!
+
+1. Fork the Project.
+2. Create your Feature Branch (`git checkout -b feature/AwesomeFeature`).
+3. Commit your Changes (`git commit -m 'Add some AwesomeFeature'`).
+4. Push to the Branch (`git push origin feature/AwesomeFeature`).
+5. Open a Pull Request.
+
+---
+
+## 📜 License
+
+Distributed under the **MIT License**. See `LICENSE` for more details.
+
+
